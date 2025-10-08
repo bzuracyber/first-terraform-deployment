@@ -1,0 +1,14 @@
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.backup
+crash.log
+
+# Local binaries
+*.exe
+*.zip
+*.tar.gz
+
+# Python
+__pycache__/
+*.pyc
