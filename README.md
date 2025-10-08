@@ -26,10 +26,10 @@ Before you begin, make sure you have the following installed on your system:
 ## 📥 Installation
 
 1. Clone this repository
-'''bash
+```bash
     git clone https://github.com/bzuracyber/first-terraform-deployment.git  
     cd first-terraform-deployment
-'''
+```
 3. Install Terraform  
 
    - On Linux:
