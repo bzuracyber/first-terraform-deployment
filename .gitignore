@@ -5,7 +5,8 @@
 # State files (contain secrets!)
 *.tfstate
 *.tfstate.backup
-
+terraform.tfstate.backup
+terraform.tfstate
 # Crash logs
 crash.log
 
