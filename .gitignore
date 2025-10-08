@@ -1,14 +1,19 @@
-# Terraform
+# Terraform working directory
 .terraform/
+.terraform.lock.hcl
+
+# State files (contain secrets!)
 *.tfstate
 *.tfstate.backup
+
+# Crash logs
 crash.log
 
-# Local binaries
-*.exe
-*.zip
-*.tar.gz
+# Sensitive variable files
+*.tfvars
+*.tfvars.json
 
-# Python
-__pycache__/
-*.pyc
+# OS / editor junk
+.DS_Store
+Thumbs.db
+*.swp
