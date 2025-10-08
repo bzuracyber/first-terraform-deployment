@@ -26,11 +26,11 @@ Before you begin, make sure you have the following installed on your system:
 ## 📥 Installation
 
 1. Clone this repository
-
+'''bash
     git clone https://github.com/bzuracyber/first-terraform-deployment.git  
     cd first-terraform-deployment
-
-2. Install Terraform  
+'''
+3. Install Terraform  
 
    - On Linux:
 
@@ -42,7 +42,7 @@ Before you begin, make sure you have the following installed on your system:
    - On Windows:  
      Download the installer from Terraform Downloads and add it to your PATH.
 
-3. Install AWS CLI  
+4. Install AWS CLI  
    - Download AWS CLI v2 for your OS.  
    - Verify installation:
 
