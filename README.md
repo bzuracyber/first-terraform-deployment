@@ -26,49 +26,50 @@ Before you begin, make sure you have the following installed on your system:
 ## 📥 Installation
 
 1. Clone this repository
-   
+```bash    
     git clone https://github.com/bzuracyber/first-terraform-deployment.git  
     cd first-terraform-deployment
-
-3. Install Terraform  
+```
+2. Install Terraform  
 
    - On Linux:
-
+```bash
         sudo apt-get update && sudo apt-get install -y gnupg software-properties-common curl  
         curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -  
         sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"  
         sudo apt-get update && sudo apt-get install terraform
-
+```
    - On Windows:  
      Download the installer from Terraform Downloads and add it to your PATH.
 
-4. Install AWS CLI  
+3. Install AWS CLI  
    - Download AWS CLI v2 for your OS.  
    - Verify installation:
-
+```bash
     aws --version
+```
 ---
 
 ## Step-by-Step: Create an IAM user and get keys
 
 1. Create the IAM user (replace my-terraform-user with your preferred name)
-
+```bash
     aws iam create-user --user-name my-terraform-user
-
+```
 2. Attach a policy  
-
+```bash
     aws iam attach-user-policy --user-name my-terraform-user --policy-arn arn:aws:iam::aws:policy/AdministratorAccess
-
+```
 For Terraform labs, you might attach AdministratorAccess (broad permissions), but for best practice, attach only what you need (e.g., AmazonS3FullAccess, AmazonEC2FullAccess).
 
 3. Create an access key
-
+```bash
     aws iam create-access-key --user-name my-terraform-user
-
+```
 This generates the AccessKeyId and SecretAccessKey.
 
 The output will look like:
-
+```json
 {
   "AccessKey": {
     "UserName": "my-terraform-user",
@@ -78,29 +79,29 @@ The output will look like:
     "CreateDate": "2025-10-08T23:00:00Z"
   }
 }
-
+```
 ⚠️ Copy the AccessKeyId and SecretAccessKey immediately — the secret is only shown once.
 
 4. Configure your AWS CLI profile  
-
+```bash
     aws configure --profile terraform-user
-
+```
 You can now plug those values into aws configure.  
 Enter the Access Key ID, Secret Access Key, region, and output format.
 
 5. Verify it works  
-    
+```bash    
     aws sts get-caller-identity --profile terraform-user
-
+```
 You should see your new IAM user’s ARN and account ID.
 
 
 ## 🔐 Authenticate to AWS CLI
 
 1. Configure your AWS credentials:
-
+```bash
 aws configure
-
+```
 You’ll be prompted for:  
 - AWS Access Key ID  
 - AWS Secret Access Key  
@@ -108,9 +109,9 @@ You’ll be prompted for:
 - Default output format (e.g., json)
 
 2. Verify authentication:
-
+```bash
 aws sts get-caller-identity
-
+```
 This should return your AWS account and IAM user/role details.
 
 ---
@@ -118,27 +119,27 @@ This should return your AWS account and IAM user/role details.
 ## 🚀 Using Terraform
 
 1. Initialize Terraform
-
+```bash
     terraform init
-
+```
 2. Validate configuration
-
+```bash
     terraform validate
-
+```
 3. Preview the changes
-
+```bash
     terraform plan
-
+```
 4. Apply the configuration
-
+```bash
     terraform apply
-
+```
 Type "yes" when prompted. Terraform will provision the resources defined in main.tf.
 
 5. Destroy resources (cleanup)
-
+```bash
 terraform destroy
-
+```
 ---
 
 ## ⚠️ Notes & Best Practices
